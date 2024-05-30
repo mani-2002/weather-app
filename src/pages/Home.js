@@ -10,7 +10,7 @@ const Home = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d885aa1d783fd13a55050afeef620fcb`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f2cd1a1e24bd7963137e9860274f6a85`
     )
       .then((response) => response.json())
       .then((data) => {

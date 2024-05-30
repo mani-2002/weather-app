@@ -8,7 +8,7 @@ const EventPlanners = () => {
   const fetchWeather = async (city) => {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d885aa1d783fd13a55050afeef620fcb`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f2cd1a1e24bd7963137e9860274f6a85`
       );
       const data = await response.json();
       const kelvinTemp = data.main.temp;
