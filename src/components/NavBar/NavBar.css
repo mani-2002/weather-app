@@ -1,0 +1,9 @@
+li:hover{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    height: 6.7vh;
+}
+li{
+    font-size: 4vh;
+}
