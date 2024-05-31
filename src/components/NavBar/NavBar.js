@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import logo from "../../images/logo.png";
 const NavBar = () => {
+  const [selected, setSelected] = useState("");
+  const handleClick = (buttonName) => {
+    setSelected(buttonName);
+  };
   return (
     <nav
       style={{
@@ -24,6 +28,7 @@ const NavBar = () => {
         <Link
           to="/"
           style={{ textDecoration: "none", fontSize: "8vh", color: "black" }}
+          onClick={() => handleClick("Home")}
         >
           <img
             src={logo}
@@ -44,27 +49,62 @@ const NavBar = () => {
           }}
         >
           <li style={{ marginRight: "5vh" }}>
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link
+              to="/"
+              style={{
+                textDecoration: "none",
+                fontWeight: selected === "Home" ? "bold" : "normal",
+              }}
+              onClick={() => handleClick("Home")}
+            >
               Home
             </Link>
           </li>
           <li style={{ marginRight: "5vh" }}>
-            <Link to="/my-experience" style={{ textDecoration: "none" }}>
+            <Link
+              to="/my-experience"
+              style={{
+                textDecoration: "none",
+                fontWeight: selected === "My Personal Exp." ? "bold" : "normal",
+              }}
+              onClick={() => handleClick("My Personal Exp.")}
+            >
               My Personal Exp.
             </Link>
           </li>
           <li style={{ marginRight: "5vh" }}>
-            <Link to="/event-planners" style={{ textDecoration: "none" }}>
+            <Link
+              to="/event-planners"
+              style={{
+                textDecoration: "none",
+                fontWeight: selected === "Event Planners" ? "bold" : "normal",
+              }}
+              onClick={() => handleClick("Event Planners")}
+            >
               Event Planners
             </Link>
           </li>
           <li style={{ marginRight: "5vh" }}>
-            <Link to="/farmers" style={{ textDecoration: "none" }}>
+            <Link
+              to="/farmers"
+              style={{
+                textDecoration: "none",
+                fontWeight: selected === "Farmers" ? "bold" : "normal",
+              }}
+              onClick={() => handleClick("Farmers")}
+            >
               Farmers
             </Link>
           </li>
           <li style={{ marginRight: "18vh" }}>
-            <Link to="/travellers" style={{ textDecoration: "none" }}>
+            <Link
+              to="/travellers"
+              style={{
+                textDecoration: "none",
+                fontWeight: selected === "Travellers" ? "bold" : "normal",
+              }}
+              onClick={() => handleClick("Travellers")}
+            >
               Travellers
             </Link>
           </li>

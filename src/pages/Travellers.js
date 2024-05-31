@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import travellersImg from "../images/travellers_img.avif";
 
 const TravelPlanner = () => {
   const [temperature, setTemperature] = useState(null);
@@ -8,7 +9,7 @@ const TravelPlanner = () => {
   const fetchWeather = async (city) => {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f2cd1a1e24bd7963137e9860274f6a85`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`
       );
       const data = await response.json();
       const kelvinTemp = data.main.temp;
@@ -43,11 +44,24 @@ const TravelPlanner = () => {
   };
 
   return (
-    <div>
-      <div style={{ backgroundColor: "lightcyan", padding: "20px" }}>
+    <div
+      style={{
+        backgroundImage: `url(${travellersImg})`,
+        backgroundSize: "cover",
+        height: "90vh",
+      }}
+    >
+      <div style={{ padding: "20px" }}>
         <center>
-          <div style={{ fontSize: "24px", marginBottom: "20px" }}>
-            Check if it's Good to Travel to Your Desired City
+          <div
+            style={{
+              fontSize: "24px",
+              marginBottom: "20px",
+              background: "white",
+            }}
+          >
+            Check if it's Good to Travel to Your Desired City, Use Search Box
+            Below...
           </div>
           <form onSubmit={handleSubmit}>
             <input
@@ -65,27 +79,29 @@ const TravelPlanner = () => {
               className="btn btn-primary"
             />
           </form>
-          {temperature !== null && (
-            <p style={{ fontSize: "20px", marginTop: "20px" }}>
-              Temperature: {Math.round(temperature)}°C
-            </p>
-          )}
-          {weather && (
-            <p style={{ fontSize: "20px", marginTop: "10px" }}>
-              Weather: {weather}
-            </p>
-          )}
-          {suggestion && (
-            <p
-              style={{
-                fontSize: "20px",
-                marginTop: "20px",
-                fontWeight: "bold",
-              }}
-            >
-              Suggestion: {suggestion}
-            </p>
-          )}
+          <div style={{ backgroundColor: "white" }}>
+            {temperature !== null && (
+              <p style={{ fontSize: "20px", marginTop: "20px" }}>
+                Temperature: {Math.round(temperature)}°C
+              </p>
+            )}
+            {weather && (
+              <p style={{ fontSize: "20px", marginTop: "10px" }}>
+                Weather: {weather}
+              </p>
+            )}
+            {suggestion && (
+              <p
+                style={{
+                  fontSize: "20px",
+                  marginTop: "20px",
+                  fontWeight: "bold",
+                }}
+              >
+                Suggestion: {suggestion}
+              </p>
+            )}
+          </div>
         </center>
       </div>
     </div>

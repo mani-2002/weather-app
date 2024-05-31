@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import WeatherCard from "../components/WeatherCard";
-
+import homeImg1 from "../images/home_img1.avif";
 const Home = () => {
   const [city, setCity] = useState("");
   const [temp, setTemp] = useState("");
@@ -10,7 +10,7 @@ const Home = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f2cd1a1e24bd7963137e9860274f6a85`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -20,7 +20,13 @@ const Home = () => {
       });
   };
   return (
-    <div style={{ backgroundColor: "lightcyan", height: "90vh" }}>
+    <div
+      style={{
+        backgroundImage: `url(${homeImg1})`,
+        backgroundSize: "cover",
+        height: "110vh",
+      }}
+    >
       <center>
         <div style={{ paddingTop: "5vh" }}>
           <div style={{ fontSize: "5vh" }}>
@@ -46,14 +52,22 @@ const Home = () => {
                   className="btn btn-primary"
                 />
               </form>
-              <p style={{ fontSize: "3vh" }}>{temp}</p>
+              <p
+                style={{
+                  fontSize: "3vh",
+                  backgroundColor: "white",
+                  margin: "2vh 3vh 0 3vh",
+                }}
+              >
+                {temp}
+              </p>
             </div>
           </div>
         </div>
       </center>
-      <div style={{ height: "53vh", backgroundColor: "white", padding: "5vh" }}>
+      <div style={{ height: "53vh", background: "none", padding: "5vh" }}>
         <p style={{ fontWeight: "bold", fontSize: "4vh" }}>
-          You Might Also Wanted to Temperature in Below Cities...
+          You Might Also Wanted to Find Temperature in Below Cities...
         </p>
         <div
           style={{
@@ -70,8 +84,6 @@ const Home = () => {
           <WeatherCard city="Warangal" />
           <WeatherCard city="Nizamabad" />
           <WeatherCard city="Gadwal" />
-          <WeatherCard city="Suryapet" />
-          <WeatherCard city="Nagarkurnool" />
         </div>
       </div>
     </div>

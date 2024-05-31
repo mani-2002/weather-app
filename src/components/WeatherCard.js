@@ -6,7 +6,7 @@ const WeatherCard = ({ city }) => {
   useEffect(() => {
     if (city) {
       fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f2cd1a1e24bd7963137e9860274f6a85`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`
       )
         .then((response) => response.json())
         .then((data) => {

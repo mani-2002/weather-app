@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import farmersImg from "../images/farmers.jpeg";
 
 const Farmers = () => {
   const [temperature, setTemperature] = useState(null);
@@ -10,7 +11,7 @@ const Farmers = () => {
   const fetchTemperature = async (city) => {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f2cd1a1e24bd7963137e9860274f6a85`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`
       );
       const data = await response.json();
       const kelvinTemp = data.main.temp;
@@ -88,11 +89,24 @@ const Farmers = () => {
   };
 
   return (
-    <div>
-      <div style={{ backgroundColor: "lightcyan", padding: "20px" }}>
+    <div
+      style={{
+        backgroundImage: `url(${farmersImg})`,
+        backgroundSize: "cover",
+        height: "90vh",
+      }}
+    >
+      <div style={{ padding: "20px" }}>
         <center>
-          <div style={{ fontSize: "24px", marginBottom: "20px" }}>
-            Take Crop Suggestions Based on Temperature...
+          <div
+            style={{
+              fontSize: "24px",
+              marginBottom: "20px",
+              color: "black",
+              backgroundColor: "white",
+            }}
+          >
+            Take Crop Suggestions Based on Temperature, Use Search Box Below...
           </div>
           <form onSubmit={handleSubmit}>
             <input
@@ -111,27 +125,35 @@ const Farmers = () => {
             />
           </form>
           {temperature !== null && (
-            <p style={{ fontSize: "4vh", marginTop: "20px" }}>
+            <p
+              style={{
+                fontSize: "4vh",
+                marginTop: "20px",
+                backgroundColor: "white",
+              }}
+            >
               <b>Temperature:</b> {Math.round(temperature)}°C
             </p>
           )}
         </center>
       </div>
-      {temperature !== null && (
-        <div>
-          <p style={{ fontSize: "4vh", padding: "2vh 0 0 2vh" }}>
-            Suggestions for the Farmers Based on the Temperature...
-          </p>
-          <ul>
-            {season && <li style={{ fontSize: "20px" }}>Season: {season}</li>}
-            {crops && <li style={{ fontSize: "20px" }}>{crops}</li>}
-            {watering && <li style={{ fontSize: "20px" }}>{watering}</li>}
-            {additionalTips && (
-              <li style={{ fontSize: "20px" }}>{additionalTips}</li>
-            )}
-          </ul>
-        </div>
-      )}
+      <div style={{ backgroundColor: "white", margin: "3vh" }}>
+        {temperature !== null && (
+          <div>
+            <p style={{ fontSize: "4vh", padding: "2vh 0 0 2vh" }}>
+              Suggestions for the Farmers Based on the Temperature...
+            </p>
+            <ul>
+              {season && <li style={{ fontSize: "20px" }}>Season: {season}</li>}
+              {crops && <li style={{ fontSize: "20px" }}>{crops}</li>}
+              {watering && <li style={{ fontSize: "20px" }}>{watering}</li>}
+              {additionalTips && (
+                <li style={{ fontSize: "20px" }}>{additionalTips}</li>
+              )}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
