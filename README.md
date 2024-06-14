@@ -29,23 +29,27 @@ The navigation bar contains the following routes:
    - Allows users to enter a city name and fetch the temperature for that city.
    - Displays temperatures of some additional cities below the search box.
 
-2. **My Personal Experience**
+2. **My Personal Experience**  
+   ![Weather App Screenshot](https://drive.google.com/thumbnail?id=1Q_KAk4SQH0rUPNjrI5R4f3yubkAyymq_)
 
    - Contains a section where the developer shares their personal experience with the weather, specifically during rainy climates.
 
-3. **Event Planners**
+3. **Event Planners**  
+   ![Weather App Screenshot](https://drive.google.com/thumbnail?id=1Q_KAk4SQH0rUPNjrI5R4f3yubkAyymq_)
 
    - Contains a search box for entering a city name.
    - Upon clicking the button, the temperature of the specified city is displayed.
    - Provides a suggestion on whether to plan an event based on the current temperature.
 
-4. **Farmers**
+4. **Farmers**  
+   ![Weather App Screenshot](https://drive.google.com/thumbnail?id=1Q_KAk4SQH0rUPNjrI5R4f3yubkAyymq_)
 
    - Contains a search box for entering a city name.
    - Upon clicking the button, the temperature of the specified city is displayed.
    - Provides suggestions on which crops to grow and precautions to take based on the temperature.
 
-5. **Travellers**
+5. **Travellers**  
+   ![Weather App Screenshot](https://drive.google.com/thumbnail?id=1Q_KAk4SQH0rUPNjrI5R4f3yubkAyymq_)
    - Contains a search box for entering a destination city name.
    - Upon clicking the button, the temperature of the specified city is displayed.
    - Provides travel safety suggestions based on the current temperature.
