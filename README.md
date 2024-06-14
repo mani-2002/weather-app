@@ -22,7 +22,7 @@ The navigation bar contains the following routes:
 
 ### Route Descriptions
 
-1. **Home**
+1. **Home**  
    ![Weather App Screenshot](https://drive.google.com/thumbnail?id=1Q_KAk4SQH0rUPNjrI5R4f3yubkAyymq_)
 
    - Contains a search box and a 'Find Temperature' button.
