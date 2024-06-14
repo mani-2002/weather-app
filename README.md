@@ -2,6 +2,11 @@
 
 This Weather Application is built using ReactJS and the OpenWeatherMap API. The application fetches the temperature based on the city name and displays it on the UI. It is designed to be useful for various user groups such as farmers, event planners, travelers, and individuals who want to know the temperature of a specific city. The application also includes a personal experience section where the developer shares their experience with the weather.
 
+## Links
+
+- [GitHub Repository](https://github.com/mani-2002/weather-app)
+- [Live Application](https://weather-app-taupe-tau.vercel.app/)
+
 ## Features of the Application
 
 ### General
